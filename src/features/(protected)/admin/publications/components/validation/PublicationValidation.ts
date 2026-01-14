@@ -18,9 +18,15 @@ const requiredImageSchema = z
   .refine((file) => file.size <= PUBLICATION_MAX_IMAGE_SIZE, {
     message: 'Ukuran gambar maksimal 3 MB'
   })
-  .refine((file) => PUBLICATION_ACCEPTED_IMAGE_TYPES.includes(file.type), {
-    message: 'Format gambar harus JPG, JPEG, PNG, atau WEBP'
-  })
+  .refine(
+    (file) =>
+      PUBLICATION_ACCEPTED_IMAGE_TYPES.includes(
+        file.type as typeof PUBLICATION_ACCEPTED_IMAGE_TYPES[number]
+      ),
+    {
+      message: 'Format gambar harus JPG, JPEG, PNG, atau WEBP'
+    }
+  )
 
 const optionalImageSchema = z
   .custom<File | null | undefined>((file) => file === undefined || file === null || file instanceof File, {
@@ -29,9 +35,16 @@ const optionalImageSchema = z
   .refine((file) => !file || file.size <= PUBLICATION_MAX_IMAGE_SIZE, {
     message: 'Ukuran gambar maksimal 3 MB'
   })
-  .refine((file) => !file || PUBLICATION_ACCEPTED_IMAGE_TYPES.includes(file.type), {
-    message: 'Format gambar harus JPG, JPEG, PNG, atau WEBP'
-  })
+  .refine(
+    (file) =>
+      !file ||
+      PUBLICATION_ACCEPTED_IMAGE_TYPES.includes(
+        file.type as typeof PUBLICATION_ACCEPTED_IMAGE_TYPES[number]
+      ),
+    {
+      message: 'Format gambar harus JPG, JPEG, PNG, atau WEBP'
+    }
+  )
   .optional()
   .nullable()
 
