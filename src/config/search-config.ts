@@ -142,3 +142,9 @@ export const PublicationSearchConfig: SearchConfig = {
     }
   ]
 }
+
+export const GuestBookSearchConfig: SearchConfig = {
+  placeholder: 'Cari tamu berdasarkan nama, asal, atau keperluan...',
+  searchButtonText: 'Cari',
+  resetButtonText: 'Reset'
+}
