@@ -60,6 +60,11 @@ export function AdminSidebar({ ...props }: React.ComponentProps<typeof Sidebar>)
         name: 'Article Categories',
         url: '/admin/article-categories',
         icon: Tags
+      },
+      {
+        name: 'Guest Books',
+        url: '/admin/guestbooks',
+        icon: Users
       }
     ],
     useritems: [
