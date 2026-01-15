@@ -1,3 +1,5 @@
+'use client'
+
 import React, { useState } from 'react'
 import { Book, Menu, X, GitBranch, Terminal, Shield, CheckCircle, AlertCircle, FileText, ChevronRight } from 'lucide-react'
 
@@ -234,15 +236,15 @@ export default function App() {
   const activeSection = docSections.find((s) => s.id === activeId) || docSections[0]
 
   // Close mobile menu when selection changes
-interface SectionClickHandler {
+  interface SectionClickHandler {
     (id: string): void
-}
+  }
 
-const handleSectionClick: SectionClickHandler = (id) => {
+  const handleSectionClick: SectionClickHandler = (id) => {
     setActiveId(id)
     setIsMobileMenuOpen(false)
     window.scrollTo({ top: 0, behavior: 'smooth' })
-}
+  }
 
   return (
     <div className="flex h-screen bg-white font-sans text-slate-900 overflow-hidden">
