@@ -12,7 +12,7 @@ import { FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessa
 import { Input } from '@/components/ui/input'
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover'
 import { Calendar as DayPicker } from '@/components/ui/calendar'
-import { Calendar, Languages, Loader2 } from 'lucide-react'
+import { Calendar, Loader2 } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { RichTextEditor } from '@/components/ui/rich-text-editor'
 import { format } from 'date-fns'
