@@ -12,7 +12,7 @@ import { FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessa
 import { Input } from '@/components/ui/input'
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover'
 import { Calendar as DayPicker } from '@/components/ui/calendar'
-import { Calendar } from 'lucide-react'
+import { Calendar, Languages, Loader2 } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { RichTextEditor } from '@/components/ui/rich-text-editor'
 import { format } from 'date-fns'
@@ -146,6 +146,15 @@ export function CreatePublicationForm() {
             <CardTitle>Publikasi</CardTitle>
             <CardDescription>Lengkapi judul, tanggal, konten, gambar, tipe, dan kategori publikasi.</CardDescription>
           </CardHeader>
+          {createPublication.isPending && (
+            <div className="mx-6 -mt-2 mb-2 flex items-center gap-2 rounded-lg border border-primary/30 bg-primary/5 px-3 py-2 text-sm text-primary">
+              <Loader2 className="h-4 w-4 animate-spin" />
+              <div className="flex flex-col leading-tight">
+                <span className="font-medium">Sedang auto-translate ke EN &amp; ZH</span>
+                <span className="text-xs text-primary/80">Konten dan slug disesuaikan otomatis, mohon tunggu sejenak.</span>
+              </div>
+            </div>
+          )}
           <CardContent className="space-y-4">
             <FormField
               control={form.control}
