@@ -2,6 +2,14 @@ import type { PaginatedResponse } from '@/types/api/api'
 
 export type PublicationType = 'News' | 'Article'
 
+export type PublicationLanguage = 'id' | 'en' | 'zh'
+
+export type PublicationSlugMap = {
+  id: string | null
+  en: string | null
+  zh: string | null
+}
+
 export interface PublicationCategoryRef {
   id: string
   name: string
@@ -15,12 +23,13 @@ export interface Publication {
   date: string | Date
   created_at: string | Date
   updated_at: string | Date
-  language: 'id' | 'en'
+  language: PublicationLanguage
   type: PublicationType
   category_ids?: string[]
   categories?: PublicationCategoryRef[]
   image?: string | null
   image_og?: string | null
+  slug_map?: PublicationSlugMap
 }
 
 export interface PublicationParams {
@@ -29,7 +38,7 @@ export interface PublicationParams {
   search?: string
   sortBy?: string
   sortOrder?: 'asc' | 'desc'
-  lang?: 'id' | 'en'
+  lang?: PublicationLanguage
   type?: PublicationType
 }
 
@@ -57,7 +66,10 @@ export type PublicationCreatePayload = CreatePublicationRequest
 
 export type PublicationUpdatePayload = UpdatePublicationRequest
 
-// eslint-disable-next-line @typescript-eslint/no-empty-object-type
-export interface PublicationCreateOrUpdateResponse extends Publication {}
+export type PublicationCreateOrUpdateResponse = {
+  idn: Publication
+  eng: Publication
+  zh: Publication
+}
 
 export type PublicationDetail = Publication

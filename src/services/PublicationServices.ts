@@ -71,7 +71,7 @@ export const getPublications = async (params: PublicationParams = {}): Promise<P
 
 export const getPublicationById = async (id: string): Promise<PublicationDetail> => {
   try {
-    const response = await axiosInstance.get<ApiResponse<PublicationCreateOrUpdateResponse>>(`/admin/publications/${id}`)
+    const response = await axiosInstance.get<ApiResponse<PublicationDetail>>(`/admin/publications/${id}`)
     return response.data.data
   } catch (error: unknown) {
     throw normalizeError(error, 'Gagal mengambil detail publikasi', 'GET_PUBLICATION_BY_ID_ERROR')
