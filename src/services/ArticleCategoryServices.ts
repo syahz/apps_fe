@@ -12,7 +12,11 @@ const normalizeError = (error: unknown, defaultMsg: string, defaultCode: string)
       details: err.response?.data?.details
     }
   }
-  return { message: defaultMsg, code: defaultCode, details: undefined }
+  return {
+    message: defaultMsg,
+    code: defaultCode,
+    details: undefined
+  }
 }
 
 export const getArticleCategories = async (params: ArticleCategoryParams = {}): Promise<PaginatedResponse<ArticleCategory>> => {
